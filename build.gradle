@@ -1,0 +1,58 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.devfactory.tpmis'
+version = '1.0.0'
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    implementation.exclude module: 'spring-boot-starter-tomcat'
+}
+
+dependencies {
+    //Spring
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-cache')
+    implementation('org.springframework.boot:spring-boot-starter-hateoas')
+    implementation('org.springframework.boot:spring-boot-starter-jooq')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.5.RELEASE')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-undertow')
+    implementation('org.springframework.session:spring-session-jdbc:2.0.6.RELEASE')
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+
+    //App
+    implementation('org.liquibase:liquibase-core')
+    implementation('mysql:mysql-connector-java')
+    compileOnly('org.projectlombok:lombok')
+
+    //Web
+    implementation('org.webjars:jquery:3.3.1-1')
+    implementation('org.webjars:w2ui:1.5.rc1')
+    implementation('org.webjars:chartjs:2.7.2')
+    implementation('org.webjars:js-cookie:2.2.0')
+
+    //tests
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.restdocs:spring-restdocs-mockmvc')
+    testImplementation('org.springframework.security:spring-security-test')
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Welcome</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <base href="/" />
+    <link type="text/css" href="/webjars/w2ui/1.5.rc1/w2ui.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/w2ui/1.5.rc1/w2ui.min.js"></script>
+    <script type="text/javascript" src="/webjars/js-cookie/2.2.0/js.cookie.js"></script>
+    <script type="text/javascript" src="js/logout.js"></script>
+</head>
+
+<body>
+<div class="container authenticated" style="display: none">
+    Hello <span id="user"></span>
+    <div>
+        <button onClick="logout()" class="">Logout</button>
+    </div>
+</div>
+</body>
+
+</html>
